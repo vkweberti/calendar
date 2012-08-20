@@ -7,8 +7,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
+<div id="wrapper">
+  <div id="header">
+    <% if user_signed_in? %>
+      <%= ("Hi, " + link_to(current_user.email, edit_user_path(current_user))).html_safe %>
+      <%= link_to "Logout", destroy_user_session_path, :method => :delete %>
+    <% else %>
+      <%= link_to "Log In", new_user_session_path %>
+    <% end %>
+  </div>
+  <div id="sideLeft"></div>
+  <div id="center">
+    <%= yield %>
+  </div>
+</div>
 
 </body>
 </html>
