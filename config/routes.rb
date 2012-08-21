@@ -1,10 +1,13 @@
 Calendar::Application.routes.draw do
 
-  root :to => "users#index"
+  root :to => "events#index"
 
   devise_for :users
 
-  resources :users
+  resources :users, :only => :show
+
+  resources :events
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
