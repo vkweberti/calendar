@@ -1,6 +1,7 @@
-<!-- Probably move the stylesheet to you layout. Also make sure you include the javascript. -->
-<%= stylesheet_link_tag "event_calendar" %>
-
+<!-- Probably move the stylesheet to you layouts. Also make sure you include the javascript. -->
+<% content_for :head_css do %>
+  <%= stylesheet_link_tag 'calendar/event_calendar' %>
+<% end %>
 <h1>Calendar</h1>
 
 <%= raw(event_calendar) %>
