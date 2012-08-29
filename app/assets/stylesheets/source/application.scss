@@ -1,84 +1,225 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the top of the
- * compiled file, but it's generally better to create a new file per style scope.
- *
- *= require_self
- *= require_tree .
-*/
+html {
+  height: 100%;
+}
 
 body {
-  background-color: #fff;
-  color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+  letter-spacing: 0.2pt;
+  color: #444444;
+  line-height: 20px;
+  font: {
+    size: 12px;
+    family: Droid sans
+  }
 }
 
-p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
+.clear {
+  clear: both;
 }
 
-pre {
-  background-color: #eee;
-  padding: 10px;
-  font-size: 11px;
+p {
+  margin: 0;
 }
 
 a {
-  color: #000;
-  &:visited {
-    color: #666;
+  color: #88bbc8;
+  text-decoration: underline;
+  font: {
+    size: 12px;
+    family: Droid sans;
   }
   &:hover {
-    color: #fff;
-    background-color: #000;
+    color: #37abc8;
   }
 }
 
-div {
-  &.field, &.actions {
-    margin-bottom: 10px;
+.add-new {
+  font: {
+    style: italic;
   }
 }
 
-#notice {
-  color: green;
+#header {
+  height: 70px;
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+  background: asset_url('head-bg.png', image) repeat-x;
+  color: #d8d7d7;
+  .shadow {
+    height: 32px;
+    padding: 20px 20px 20px 30px;
+    margin-left: 1px;
+    background: asset_url('shadow.gif', image) repeat-x 0px 70px;
+  }
+  .user {
+    width: 1020px;
+    margin: 0 auto;
+    line-height: 15px;
+    .welcome {
+      width: 230px;
+      float: left;
+    }
+    font: {
+      family: Droid serif;
+      style: italic;
+    }
+    a {
+      color: #666666;
+      text-decoration: none;
+      margin-left: 3px;
+      font: {
+        family: Arial;
+        style: normal;
+        size: 13px;
+      }
+      &:hover {
+      color: #d8d7d7;
+      }
+    }
+  }
+  p {
+    margin: 0px;
+    padding: 0px;
+  }
 }
 
-.field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table;
+#main {
+  height: auto !important;
+  margin: 0px;
+  min-height: 100%;
+  padding: 0;
+  .footer-push {
+    height: 100px;
+    margin: 0;
+    padding: 0;
+  }
 }
 
-#error_explanation {
-  width: 450px;
-  border: 2px solid red;
-  padding: 7px;
-  padding-bottom: 0;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
+#content {
+  width: 1020px;
+  margin: 0 auto;
+  padding: 80px 0px 40px;
+  position: relative;
+}
+
+#left {
+  position: fixed;
+  text-align: right;
+  z-index: 100;
+  .wrap {
+    border-right: 1px solid #efefef;
+    padding: 0px 10px 0px 30px;
+    width: 160px;
+  }
+  h3 {
+    color: #999999;
+    background: #f8f8f8;
+    padding: 7px;
+    margin-bottom: 13px;
+    font: {
+      size: 9px;
+      weight: normal;
+      family: Arial;
+    }
+  }
+  ul {
+    padding: 0px 7px 0px 0px;
+    margin: 0;
+  }
+  li {
+    list: {
+      style: none;
+    }
+    a {
+      text-decoration: none;
+      span {
+        color: #999999;
+        font: {
+          style: italic;
+          size: 11px;
+          family: Droid serif;
+        }
+      }
+      &:hover{
+        span {
+          color: #4b4b4b;
+        }
+      }
+    }
+    .logout {
+      color: #999999;
+      background: asset_url('cross.gif', image) no-repeat 0px 3px;
+      padding-left: 10px;
+      &:hover {
+        color: #4b4b4b;
+        background-position: 0px -13px;
+      }
+    }
+  }
+}
+
+#center {
+  padding:0px 20px 0px 220px;
+  width: 780px;
+  position: relative;
+  height: 100%;
+  h1 {
+    color: #6f1113;
+    letter-spacing: 1.0pt;
+    line-height: 32px;
+    margin: 40px 0px;
+    font: {
+      family: Droid serif;
+      size: 27px;
+    }
+    span {
+      color: #444444;
+    }
+  }
   h2 {
-    text-align: left;
-    font-weight: bold;
-    padding: 5px 5px 5px 15px;
-    font-size: 12px;
-    margin: -7px;
-    margin-bottom: 0px;
-    background-color: #c00;
-    color: #fff;
+    margin: 20px 0px;
+    letter-spacing: 0.75pt;
+    font: {
+      weight: bold;
+      size: 14px;
+      family: Droid serif;
+    }
   }
-  ul li {
-    font-size: 12px;
-    list-style: square;
+  p {
+    text-indent: 20px;
+    &.code {
+      text-indent: 0px;
+      padding: 7px 15px;
+      margin: 2px 0px;
+      background: #f8f8f8;
+      font: {
+        family: Consolas;
+      }
+    }
   }
 }
 
+#footer {
+  height: 40px;
+  width: 1020px;
+  margin: 0 auto;
+  border-top: 1px solid #efefef;
+  padding: 20px 10px 0px 10px;
+  span {
+    color: #999999;
+    font: {
+      size: 11px;
+    }
+  }
+  a {
+      color: #444444;
+      text-decoration: none;
+      font: {
+        size: 11px;
+      }
+  }
+}

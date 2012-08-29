@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
   <title>Event Calendar</title>
@@ -11,20 +11,46 @@
 
 </head>
 <body>
-<div id="wrapper">
+<div id="main">
   <div id="header">
-    <% if user_signed_in? %>
-      <%= ("Hi, " + link_to(current_user.login, edit_user_registration_path)).html_safe %>
-      <%= link_to "Logout", destroy_user_session_path, :method => :delete %>
-    <% else %>
-      <%= link_to "Log In", new_user_session_path %>
+    <div class="shadow">
+      <div id='notice'>
+          <%= notice if notice %>
+          <%= alert if alert %>
+      </div>
+    <% if user_signed_in?  %>
+      <div class="user">
+        <div class="welcome">
+          Welcome to Event Calendar,
+          <%= link_to current_user.login, edit_user_registration_path %>!
+          <%= link_to t('layouts.application.logout'), destroy_user_session_path %>
+        </div>
+      <div class="clear"></div>
+      </div>
     <% end %>
+    </div>
   </div>
-  <div id="sideLeft"></div>
-  <div id="center">
-    <%= yield %>
+  <div id="content">
+    <div id="left">
+      <div class="wrap">
+      <h2><%= t('layouts.application.menu') %></h2>
+      <ul>
+        <% if user_signed_in? %>
+          <li><%= link_to t('layouts.application.logout'), destroy_user_session_path, :class => 'logout' %></li>
+        <% end %>
+      </ul>
+      </div>
+    </div>
+    <div id="center">
+        <%= yield %>
+    </div>
   </div>
+  <div class="footer-push"></div>
 </div>
+  <div id="footer">
 
+  </div>
 </body>
+
+
 </html>

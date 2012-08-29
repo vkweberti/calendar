@@ -2,9 +2,9 @@ Calendar::Application.routes.draw do
 
   root :to => "calendar#index"
 
-  devise_for :users
+  devise_for :users, :path => 'accounts'
 
-  resources :users, :only => :show
+  resources :users
 
   resources :events
 
